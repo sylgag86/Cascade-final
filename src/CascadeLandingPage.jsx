@@ -10,7 +10,13 @@ export default function CascadeLandingPage() {
           <h1 className="text-3xl font-extrabold tracking-tight text-white drop-shadow-md">Cascade</h1>
           <p className="text-sm text-blue-100">Exterior Cleaning</p>
         </div>
-        <div className="text-sm text-blue-100 font-medium">Call/Text: (716) 243-1397</div>
+        <a href="tel:7162431397" className="text-sm text-blue-100 font-medium hover:underline">
+  Call/Text: (716) 243-1397
+</a>
+<a href="mailto:cascadeexteriorcleaning716@gmail.com" className="text-sm text-blue-100 font-medium hover:underline">
+  Email: cascadeexteriorcleaning716@gmail.com
+</a>
+
       </header>
 
       <div className="relative w-full h-[85vh] overflow-hidden">
@@ -51,16 +57,47 @@ export default function CascadeLandingPage() {
         </div>
       </section>
 
-      <section className="py-12 px-4 bg-white/5 backdrop-blur-2xl rounded-2xl mx-2 shadow-inner border border-white/10 text-white">
-        <h3 className="text-3xl font-bold text-center mb-6">Book Your Free Quote</h3>
-        <form className="max-w-xl mx-auto grid gap-4">
-          <input type="text" placeholder="Full Name" className="w-full p-3 rounded-xl bg-white/20 text-white placeholder-white/80 backdrop-blur-md border border-white/20" />
-          <input type="email" placeholder="Email Address" className="w-full p-3 rounded-xl bg-white/20 text-white placeholder-white/80 backdrop-blur-md border border-white/20" />
-          <input type="tel" placeholder="Phone Number" className="w-full p-3 rounded-xl bg-white/20 text-white placeholder-white/80 backdrop-blur-md border border-white/20" />
-          <textarea placeholder="What do you need cleaned?" className="w-full p-3 rounded-xl bg-white/20 text-white placeholder-white/80 backdrop-blur-md border border-white/20"></textarea>
-          <button type="submit" className="w-full bg-blue-500 p-3 rounded-xl text-white font-semibold hover:bg-blue-400 transition-all">Submit Quote Request</button>
-        </form>
-      </section>
+     <form
+  action="https://formsubmit.co/cascadeexteriorcleaning716@gmail.com"
+  method="POST"
+  className="glassmorphism p-6 rounded-xl space-y-4 max-w-xl mx-auto text-left"
+>
+  <input type="hidden" name="_captcha" value="false" />
+  <input
+    type="text"
+    name="name"
+    required
+    placeholder="Your Name"
+    className="w-full p-3 rounded-lg bg-white/20 text-white placeholder:text-white/70 outline-none"
+  />
+  <input
+    type="email"
+    name="email"
+    required
+    placeholder="Your Email"
+    className="w-full p-3 rounded-lg bg-white/20 text-white placeholder:text-white/70 outline-none"
+  />
+  <input
+    type="tel"
+    name="phone"
+    placeholder="Phone Number"
+    className="w-full p-3 rounded-lg bg-white/20 text-white placeholder:text-white/70 outline-none"
+  />
+  <textarea
+    name="message"
+    rows="4"
+    required
+    placeholder="How can we help?"
+    className="w-full p-3 rounded-lg bg-white/20 text-white placeholder:text-white/70 outline-none"
+  ></textarea>
+  <button
+    type="submit"
+    className="w-full bg-white/30 text-white font-bold py-3 rounded-lg hover:bg-white/50 transition"
+  >
+    Send Message
+  </button>
+</form>
+
 
       <footer className="text-center text-sm text-blue-200 mt-10">
         &copy; {new Date().getFullYear()} Cascade Exterior Cleaning | cascadeexteriorcleaning716@gmail.com
