@@ -42,7 +42,6 @@ export default function CascadeLandingPage() {
           Call Now
         </a>
       </section>
-
 {/* Shine Packages */}
 <section className="text-center py-12 mt-16">
   <a
@@ -51,22 +50,43 @@ export default function CascadeLandingPage() {
   >
     Free Quote
   </a>
+<p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
+  Select your service below to pay a 50% deposit. We'll contact you right after to schedule your cleaning.
+</p>
+
 
   <div className="grid md:grid-cols-3 gap-6 px-2">
     {[
-      { title: 'Silver Shine', desc: 'Driveway + Porch or Deck', price: '$199' },
-      { title: 'Gold Shine', desc: 'Full House Wash + Driveway', price: '$299' },
-      { title: 'Platinum Shine', desc: 'House + Driveway + Gutter + Deck or Fence', price: '$399' },
+      {
+        title: 'Silver Shine',
+        desc: 'Driveway + Porch or Deck',
+        price: '$199',
+        link: 'https://buy.stripe.com/6oEeY9gPz9d07rq5kk',
+      },
+      {
+        title: 'Gold Shine',
+        desc: 'Full House Wash + Driveway',
+        price: '$299',
+        link: 'https://buy.stripe.com/3cs03f6aVbl87rq145',
+      },
+      {
+        title: 'Platinum Shine',
+        desc: 'House + Driveway + Gutter + Deck or Fence',
+        price: '$399',
+        link: 'https://buy.stripe.com/aEU4jvbvf74S276fZ0',
+      },
     ].map((pkg, i) => (
       <a
         key={i}
-        href="tel:+17162431397"
+        href={pkg.link}
+        target="_blank"
+        rel="noopener noreferrer"
         className="block bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform cursor-pointer hover:bg-white/20"
       >
         <h4 className="text-xl font-bold mb-2">{pkg.title}</h4>
         <p className="text-blue-100 mb-2">{pkg.desc}</p>
         <p className="text-white text-lg font-semibold">{pkg.price}</p>
-        <p className="mt-4 text-blue-200 text-sm italic">Call Now</p>
+        <p className="mt-4 text-green-300 text-sm italic">Pay Deposit</p>
       </a>
     ))}
   </div>
