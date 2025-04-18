@@ -45,7 +45,13 @@ export default function CascadeLandingPage() {
 
       {/* Shine Packages */}
       <section className="text-center py-12">
-        <h3 className="text-3xl font-bold text-white drop-shadow-lg mb-8">Our Shine Packages</h3>
+       <a
+  href="tel:+17162431397"
+  className="text-3xl font-bold text-white drop-shadow-lg mb-8 hover:underline hover:text-blue-300 transition"
+>
+  Free Quote
+</a>
+
         <div className="grid md:grid-cols-3 gap-6 px-2">
           {[
             { title: 'Silver Shine', desc: 'Driveway + Porch or Deck', price: '$199' },
