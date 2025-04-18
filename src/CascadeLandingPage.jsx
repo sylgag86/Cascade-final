@@ -22,6 +22,22 @@ export default function CascadeLandingPage() {
           <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg mb-4">Clean Starts at the Surface</h1>
           <p className="text-blue-100 text-lg md:text-xl max-w-xl">Powerful, professional exterior cleaning for homes and businesses in Western New York.</p>
         </div>
+{/* 🔹 CTA Section for 25% Off Offer */}
+<section className="text-center py-16 px-6 sm:px-12 bg-white/10 backdrop-blur-lg border-t border-b border-white/20 shadow-inner">
+  <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 drop-shadow-lg">
+    💥 Get 25% Off Your First Cleaning!
+  </h3>
+  <p className="text-blue-100 text-lg mb-6">
+    Book now and save big on your first exterior service.
+  </p>
+  <a
+    href="tel:+17162431397"
+    className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105"
+  >
+    📞 Call to Claim Offer
+  </a>
+</section>
+
       </div>
 
       {/* SERVICE PACKAGES */}
