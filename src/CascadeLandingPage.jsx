@@ -43,44 +43,45 @@ export default function CascadeLandingPage() {
         </a>
       </section>
 
-      {/* Shine Packages */}
-      <section className="text-center py-12">
-       <a
-  href="tel:+17162431397"
-  className="text-3xl font-bold text-white drop-shadow-lg mb-8 hover:underline hover:text-blue-300 transition"
->
-  Free Quote
-</a>
+{/* Shine Packages */}
+<section className="text-center py-12 mt-16">
+  <a
+    href="tel:+17162431397"
+    className="text-3xl font-bold text-white drop-shadow-lg mb-10 hover:underline hover:text-blue-300 transition block"
+  >
+    Free Quote
+  </a>
 
-        <div className="grid md:grid-cols-3 gap-6 px-2">
-          {[
-            { title: 'Silver Shine', desc: 'Driveway + Porch or Deck', price: '$199' },
-            { title: 'Gold Shine', desc: 'Full House Wash + Driveway', price: '$299' },
-            { title: 'Platinum Shine', desc: 'House + Driveway + Gutter + Deck or Fence', price: '$399' },
-          ].map((pkg, i) => (
-            <a
-              key={i}
-              href="tel:+17162431397"
-              className="block bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform cursor-pointer hover:bg-white/20"
-            >
-              <h4 className="text-xl font-bold mb-2">{pkg.title}</h4>
-              <p className="text-blue-100 mb-2">{pkg.desc}</p>
-              <p className="text-white text-lg font-semibold">{pkg.price}</p>
-              <p className="mt-4 text-blue-200 text-sm italic">Call Now</p>
-            </a>
-          ))}
-        </div>
-        <div className="text-center mt-6 text-blue-200">
-          Roof cleaning starts at <span className="font-bold text-white">$399</span> based on pitch and difficulty.
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <form
-        action="https://formsubmit.co/cascadeexteriorcleaning716@gmail.com"
-        method="POST"
-        className="glassmorphism p-6 rounded-xl space-y-4 max-w-xl mx-auto text-left"
+  <div className="grid md:grid-cols-3 gap-6 px-2">
+    {[
+      { title: 'Silver Shine', desc: 'Driveway + Porch or Deck', price: '$199' },
+      { title: 'Gold Shine', desc: 'Full House Wash + Driveway', price: '$299' },
+      { title: 'Platinum Shine', desc: 'House + Driveway + Gutter + Deck or Fence', price: '$399' },
+    ].map((pkg, i) => (
+      <a
+        key={i}
+        href="tel:+17162431397"
+        className="block bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform cursor-pointer hover:bg-white/20"
       >
+        <h4 className="text-xl font-bold mb-2">{pkg.title}</h4>
+        <p className="text-blue-100 mb-2">{pkg.desc}</p>
+        <p className="text-white text-lg font-semibold">{pkg.price}</p>
+        <p className="mt-4 text-blue-200 text-sm italic">Call Now</p>
+      </a>
+    ))}
+  </div>
+
+  <div className="text-center mt-6 text-blue-200">
+    Roof cleaning starts at <span className="font-bold text-white">$399</span> based on pitch and difficulty.
+  </div>
+</section>
+
+{/* Contact Form */}
+<form
+  action="https://formsubmit.co/cascadeexteriorcleaning716@gmail.com"
+  method="POST"
+  className="glassmorphism p-6 rounded-xl space-y-4 max-w-xl mx-auto text-left"
+>
         <input type="hidden" name="_captcha" value="false" />
         <input
           type="text"
