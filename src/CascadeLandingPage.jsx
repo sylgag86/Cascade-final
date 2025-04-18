@@ -8,7 +8,7 @@ export default function CascadeLandingPage() {
         <div className="text-2xl font-extrabold text-white">Cascade Exterior Cleaning</div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-blue-100 font-medium">
           <a href="tel:7162431397" className="hover:underline">Call: (716) 243-1397</a>
-          <a href="mailto:cascadesexteriorcleaning716@gmail.com" className="hover:underline">Email: cascadesexteriorcleaning716@gmail.com</a>
+          <a href="mailto:cascadeexteriorcleaning716@gmail.com" className="hover:underline">Email: cascadeexteriorcleaning716@gmail.com</a>
         </div>
       </header>
 
@@ -32,7 +32,7 @@ export default function CascadeLandingPage() {
               href="tel:+17162431397"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105"
             >
-               Call Now
+               Call to Claim Offer
             </a>
           </div>
 
@@ -46,7 +46,31 @@ export default function CascadeLandingPage() {
         </div>
       </div>
 
-      {/* CONTACT FORM */}
+      {/* 🔹 SERVICE CARDS — SHINE PACKAGES */}
+      <section className="text-center py-12">
+        <div className="grid md:grid-cols-3 gap-6 px-2">
+          {['Silver Shine', 'Gold Shine', 'Platinum Shine'].map((title, i) => (
+            <div key={i} className="bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform">
+              <h4 className="text-xl font-bold mb-2">{title}</h4>
+              <p className="text-blue-100 mb-2">
+                {title === 'Silver Shine' && 'Driveway + Porch or Deck'}
+                {title === 'Gold Shine' && 'Full House Wash + Driveway'}
+                {title === 'Platinum Shine' && 'House + Driveway + Gutter + Deck or Fence'}
+              </p>
+              <p className="text-white text-lg font-semibold">
+                {title === 'Silver Shine' && '$199'}
+                {title === 'Gold Shine' && '$299'}
+                {title === 'Platinum Shine' && '$399'}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-6 text-blue-200">
+          Roof Cleaning starts at <span className="font-bold text-white">$399</span> — based on pitch & difficulty.
+        </div>
+      </section>
+
+      {/* 🔹 CONTACT FORM */}
       <form
         action="https://formsubmit.co/cascadeexteriorcleaning716@gmail.com"
         method="POST"
@@ -94,3 +118,4 @@ export default function CascadeLandingPage() {
     </div>
   );
 }
+
