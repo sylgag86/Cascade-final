@@ -16,59 +16,60 @@ export default function CascadeLandingPage() {
       <div className="relative w-full h-[85vh] overflow-hidden my-8 rounded-2xl shadow-2xl border border-white/10">
         <video autoPlay muted loop playsInline className="absolute w-full h-full object-cover">
           <source src="/video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center px-4 space-y-6">
           <div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg mb-2">Clean Starts at the Surface</h1>
             <p className="text-blue-100 text-base sm:text-lg">
-              Powerful, professional exterior cleaning for homes and businesses in Western New York.
+              Professional exterior cleaning for homes and businesses in Western New York.
             </p>
           </div>
         </div>
       </div>
 
-      {/* 🔹 CTA Section for 25% Off Offer (now ABOVE packages) */}
+      {/* CTA Section */}
       <section className="text-center py-16 px-6 sm:px-12 bg-white/10 backdrop-blur-lg border-t border-b border-white/20 shadow-inner">
         <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 drop-shadow-lg">
-           Get 25% Off Your First Cleaning!
+          Get 25% Off Your First Cleaning
         </h3>
         <p className="text-blue-100 text-lg mb-6">
-          Book now and save big on your first exterior service.
+          Call now and save on your first exterior service.
         </p>
         <a
           href="tel:+17162431397"
           className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105"
         >
-           Call to Claim Offer
+          Call Now
         </a>
       </section>
 
-      {/* 🔹 SERVICE CARDS — SHINE PACKAGES */}
+      {/* Shine Packages */}
       <section className="text-center py-12">
+        <h3 className="text-3xl font-bold text-white drop-shadow-lg mb-8">Our Shine Packages</h3>
         <div className="grid md:grid-cols-3 gap-6 px-2">
-          {['Silver Shine', 'Gold Shine', 'Platinum Shine'].map((title, i) => (
-            <div key={i} className="bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform">
-              <h4 className="text-xl font-bold mb-2">{title}</h4>
-              <p className="text-blue-100 mb-2">
-                {title === 'Silver Shine' && 'Driveway + Porch or Deck'}
-                {title === 'Gold Shine' && 'Full House Wash + Driveway'}
-                {title === 'Platinum Shine' && 'House + Driveway + Gutter + Deck or Fence'}
-              </p>
-              <p className="text-white text-lg font-semibold">
-                {title === 'Silver Shine' && '$199'}
-                {title === 'Gold Shine' && '$299'}
-                {title === 'Platinum Shine' && '$399'}
-              </p>
-            </div>
+          {[
+            { title: 'Silver Shine', desc: 'Driveway + Porch or Deck', price: '$199' },
+            { title: 'Gold Shine', desc: 'Full House Wash + Driveway', price: '$299' },
+            { title: 'Platinum Shine', desc: 'House + Driveway + Gutter + Deck or Fence', price: '$399' },
+          ].map((pkg, i) => (
+            <a
+              key={i}
+              href="tel:+17162431397"
+              className="block bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform cursor-pointer hover:bg-white/20"
+            >
+              <h4 className="text-xl font-bold mb-2">{pkg.title}</h4>
+              <p className="text-blue-100 mb-2">{pkg.desc}</p>
+              <p className="text-white text-lg font-semibold">{pkg.price}</p>
+              <p className="mt-4 text-blue-200 text-sm italic">Call Now</p>
+            </a>
           ))}
         </div>
         <div className="text-center mt-6 text-blue-200">
-          Roof Cleaning starts at <span className="font-bold text-white">$399</span> — based on pitch & difficulty.
+          Roof cleaning starts at <span className="font-bold text-white">$399</span> based on pitch and difficulty.
         </div>
       </section>
 
-      {/* 🔹 CONTACT FORM */}
+      {/* Contact Form */}
       <form
         action="https://formsubmit.co/cascadeexteriorcleaning716@gmail.com"
         method="POST"
