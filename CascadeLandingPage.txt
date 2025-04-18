@@ -25,37 +25,25 @@ export default function CascadeLandingPage() {
         >
           <source src="/video.mp4" type="video/mp4" />
         </video>
-<div className="relative w-full h-[85vh] overflow-hidden">
-  <video autoPlay muted loop playsInline className="absolute w-full h-full object-cover">
-    <source src="/video.mp4" type="video/mp4" />
-  </video>
 
-  {/* Overlay to darken video */}
-  <div className="absolute inset-0 bg-black bg-opacity-40 z-10 pointer-events-none"></div>
-</div>
+        {/* 🔹 Dark Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-40 z-10 pointer-events-none"></div>
 
+        {/* 🔹 Content */}
         <div className="relative z-10 flex items-center justify-center h-full px-4">
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-12 text-center max-w-2xl mx-auto border border-white/20 shadow-xl">
             <h2 className="text-4xl sm:text-5xl font-bold text-white drop-shadow-lg mb-4">
-              Clean Starts at the Surface
+              Get 25% Off Your First Wash
             </h2>
             <p className="text-blue-100 text-base sm:text-lg mb-6">
-              Book your exterior wash today and let your property shine like never before.
+              Mention this offer when you call — limited time only!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17162431397"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full shadow-lg backdrop-blur-md"
-              >
-                Call Now
-              </a>
-              <a
-                href="mailto:info@cascadecleaning.com"
-                className="bg-white/20 hover:bg-white/30 text-white font-semibold py-2 px-6 rounded-full shadow-lg border border-white/30"
-              >
-                Email Us
-              </a>
-            </div>
+            <a
+              href="tel:+17162431397"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform hover:scale-105"
+            >
+              Call Now to Claim
+            </a>
           </div>
         </div>
       </div>
