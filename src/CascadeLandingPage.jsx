@@ -1,14 +1,50 @@
 import React from 'react';
 
 export default function CascadeLandingPage() {
+  const shinePackages = [
+    {
+      title: 'Silver Shine',
+      desc: 'Driveway + Porch or Deck',
+      price: '$199',
+      stripe: 'https://buy.stripe.com/6oEeY9gPz9d07rq5kk',
+    },
+    {
+      title: 'Gold Shine',
+      desc: 'Full House Wash + Driveway',
+      price: '$299',
+      stripe: 'https://buy.stripe.com/3cs03f6aVbl87rq145',
+    },
+    {
+      title: 'Platinum Shine',
+      desc: 'House + Driveway + Gutter + Deck or Fence',
+      price: '$399',
+      stripe: 'https://buy.stripe.com/aEU4jvbvf74S276fZ0',
+    },
+  ];
+
+  function openCalendlyWithRedirect(stripeLink) {
+    if (typeof window !== 'undefined' && window.Calendly) {
+      window.Calendly.initPopupWidget({
+        url: `https://calendly.com/syl-gagliardi/new-meeting?hide_event_type_details=1&primary_color=3b82f6&text_color=ffffff&background_color=0f172a&redirect_url=${encodeURIComponent(
+          stripeLink
+        )}`,
+      });
+    } else {
+      alert('Calendly is still loading. Please wait a moment and try again.');
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#3b82f6] text-white font-sans">
-
       <header className="text-center py-4 px-4 sm:px-8 bg-black/60 backdrop-blur-sm rounded-xl shadow-md">
         <div className="text-2xl font-extrabold text-white">Cascade Exterior Cleaning</div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-blue-100 font-medium">
-          <a href="tel:7162431397" className="hover:underline">Call: (716) 243-1397</a>
-          <a href="mailto:cascadeexteriorcleaning716@gmail.com" className="hover:underline">Email: cascadeexteriorcleaning716@gmail.com</a>
+          <a href="tel:7162431397" className="hover:underline">
+            Call: (716) 243-1397
+          </a>
+          <a href="mailto:cascadeexteriorcleaning716@gmail.com" className="hover:underline">
+            Email: cascadeexteriorcleaning716@gmail.com
+          </a>
         </div>
       </header>
 
@@ -19,7 +55,9 @@ export default function CascadeLandingPage() {
         </video>
         <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center px-4 space-y-6">
           <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg mb-2">Clean Starts at the Surface</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg mb-2">
+              Clean Starts at the Surface
+            </h1>
             <p className="text-blue-100 text-base sm:text-lg">
               Professional exterior cleaning for homes and businesses in Western New York.
             </p>
@@ -43,7 +81,7 @@ export default function CascadeLandingPage() {
         </a>
       </section>
 
-      {/* Shine Packages */}
+      {/* Shine Packages Section */}
       <section className="text-center py-12 mt-16">
         <a
           href="tel:+17162431397"
@@ -56,42 +94,10 @@ export default function CascadeLandingPage() {
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 px-2">
-          {[
-            {
-              title: 'Silver Shine',
-              desc: 'Driveway + Porch or Deck',
-              price: '$199',
-              stripe: 'https://buy.stripe.com/6oEeY9gPz9d07rq5kk',
-            },
-            {
-              title: 'Gold Shine',
-              desc: 'Full House Wash + Driveway',
-              price: '$299',
-              stripe: 'https://buy.stripe.com/3cs03f6aVbl87rq145',
-            },
-            {
-              title: 'Platinum Shine',
-              desc: 'House + Driveway + Gutter + Deck or Fence',
-              price: '$399',
-              stripe: 'https://buy.stripe.com/aEU4jvbvf74S276fZ0',
-            },
-          ].map((pkg, i) => (
+          {shinePackages.map((pkg, i) => (
             <button
               key={i}
-              onClick={() => {
-                window.Calendly.initPopupWidget({
-                  url: 'https://calendly.com/syl-gagliardi/new-meeting?hide_event_type_details=1&primary_color=3b82f6&text_color=ffffff&background_color=0f172a',
-                });
-
-                const handleCalendlyEvent = (e) => {
-                  if (e.data.event === 'calendly.event_scheduled') {
-                    window.removeEventListener('message', handleCalendlyEvent);
-                    window.open(pkg.stripe, '_blank');
-                  }
-                };
-
-                window.addEventListener('message', handleCalendlyEvent);
-              }}
+              onClick={() => openCalendlyWithRedirect(pkg.stripe)}
               className="block bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform cursor-pointer hover:bg-white/20 w-full"
             >
               <h4 className="text-xl font-bold mb-2">{pkg.title}</h4>
