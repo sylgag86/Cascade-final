@@ -42,68 +42,77 @@ export default function CascadeLandingPage() {
           Call Now
         </a>
       </section>
-{/* Shine Packages */}
-<section className="text-center py-12 mt-16">
-  <a
-    href="tel:+17162431397"
-    className="text-3xl font-bold text-white drop-shadow-lg mb-10 hover:underline hover:text-blue-300 transition block"
-  >
-    Free Quote
-  </a>
-  <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
-    Select your service to schedule your wash. After booking, you’ll be directed to secure your 50% deposit.
-  </p>
 
-  <div className="grid md:grid-cols-3 gap-6 px-2">
-    {[
-      {
-        title: 'Silver Shine',
-        desc: 'Driveway + Porch or Deck',
-        price: '$199',
-        stripe: 'https://buy.stripe.com/6oEeY9gPz9d07rq5kk',
-      },
-      {
-        title: 'Gold Shine',
-        desc: 'Full House Wash + Driveway',
-        price: '$299',
-        stripe: 'https://buy.stripe.com/3cs03f6aVbl87rq145',
-      },
-      {
-        title: 'Platinum Shine',
-        desc: 'House + Driveway + Gutter + Deck or Fence',
-        price: '$399',
-        stripe: 'https://buy.stripe.com/aEU4jvbvf74S276fZ0',
-      },
-    ].map((pkg, i) => (
-      <button
-        key={i}
-        onClick={() =>
-          window.Calendly.initPopupWidget({
-            url: `https://calendly.com/syl-gagliardi/new-meeting?hide_event_type_details=1&primary_color=3b82f6&text_color=ffffff&background_color=0f172a&redirect_url=${encodeURIComponent(pkg.stripe)}`
-          })
-        }
-        className="block bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform cursor-pointer hover:bg-white/20 w-full"
+      {/* Shine Packages */}
+      <section className="text-center py-12 mt-16">
+        <a
+          href="tel:+17162431397"
+          className="text-3xl font-bold text-white drop-shadow-lg mb-10 hover:underline hover:text-blue-300 transition block"
+        >
+          Free Quote
+        </a>
+        <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
+          Select your service to schedule your wash. After booking, you’ll be directed to secure your 50% deposit.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 px-2">
+          {[
+            {
+              title: 'Silver Shine',
+              desc: 'Driveway + Porch or Deck',
+              price: '$199',
+              stripe: 'https://buy.stripe.com/6oEeY9gPz9d07rq5kk',
+            },
+            {
+              title: 'Gold Shine',
+              desc: 'Full House Wash + Driveway',
+              price: '$299',
+              stripe: 'https://buy.stripe.com/3cs03f6aVbl87rq145',
+            },
+            {
+              title: 'Platinum Shine',
+              desc: 'House + Driveway + Gutter + Deck or Fence',
+              price: '$399',
+              stripe: 'https://buy.stripe.com/aEU4jvbvf74S276fZ0',
+            },
+          ].map((pkg, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                window.Calendly.initPopupWidget({
+                  url: 'https://calendly.com/syl-gagliardi/new-meeting?hide_event_type_details=1&primary_color=3b82f6&text_color=ffffff&background_color=0f172a',
+                });
+
+                const handleCalendlyEvent = (e) => {
+                  if (e.data.event === 'calendly.event_scheduled') {
+                    window.removeEventListener('message', handleCalendlyEvent);
+                    window.open(pkg.stripe, '_blank');
+                  }
+                };
+
+                window.addEventListener('message', handleCalendlyEvent);
+              }}
+              className="block bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform cursor-pointer hover:bg-white/20 w-full"
+            >
+              <h4 className="text-xl font-bold mb-2">{pkg.title}</h4>
+              <p className="text-blue-100 mb-2">{pkg.desc}</p>
+              <p className="text-white text-lg font-semibold">{pkg.price}</p>
+              <p className="mt-4 text-green-300 text-sm italic">Schedule & Pay</p>
+            </button>
+          ))}
+        </div>
+
+        <div className="text-center mt-6 text-blue-200">
+          Roof cleaning starts at <span className="font-bold text-white">$399</span> based on pitch and difficulty.
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <form
+        action="https://formsubmit.co/cascadeexteriorcleaning716@gmail.com"
+        method="POST"
+        className="glassmorphism p-6 rounded-xl space-y-4 max-w-xl mx-auto text-left"
       >
-        <h4 className="text-xl font-bold mb-2">{pkg.title}</h4>
-        <p className="text-blue-100 mb-2">{pkg.desc}</p>
-        <p className="text-white text-lg font-semibold">{pkg.price}</p>
-        <p className="mt-4 text-green-300 text-sm italic">Schedule & Pay</p>
-      </button>
-    ))}
-  </div>
-
-  <div className="text-center mt-6 text-blue-200">
-    Roof cleaning starts at <span className="font-bold text-white">$399</span> based on pitch and difficulty.
-  </div>
-</section>
-
-
-{/* Contact Form */}
-<form
-  action="https://formsubmit.co/cascadeexteriorcleaning716@gmail.com"
-  method="POST"
-  className="glassmorphism p-6 rounded-xl space-y-4 max-w-xl mx-auto text-left"
->
         <input type="hidden" name="_captcha" value="false" />
         <input
           type="text"
