@@ -50,10 +50,9 @@ export default function CascadeLandingPage() {
   >
     Free Quote
   </a>
-<p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
-  Select your service below to pay a 50% deposit. We'll contact you right after to schedule your cleaning.
-</p>
-
+  <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
+    Select your service to schedule your wash. After booking, you’ll be directed to secure your 50% deposit.
+  </p>
 
   <div className="grid md:grid-cols-3 gap-6 px-2">
     {[
@@ -61,33 +60,35 @@ export default function CascadeLandingPage() {
         title: 'Silver Shine',
         desc: 'Driveway + Porch or Deck',
         price: '$199',
-        link: 'https://buy.stripe.com/6oEeY9gPz9d07rq5kk',
+        stripe: 'https://buy.stripe.com/6oEeY9gPz9d07rq5kk',
       },
       {
         title: 'Gold Shine',
         desc: 'Full House Wash + Driveway',
         price: '$299',
-        link: 'https://buy.stripe.com/3cs03f6aVbl87rq145',
+        stripe: 'https://buy.stripe.com/3cs03f6aVbl87rq145',
       },
       {
         title: 'Platinum Shine',
         desc: 'House + Driveway + Gutter + Deck or Fence',
         price: '$399',
-        link: 'https://buy.stripe.com/aEU4jvbvf74S276fZ0',
+        stripe: 'https://buy.stripe.com/aEU4jvbvf74S276fZ0',
       },
     ].map((pkg, i) => (
-      <a
+      <button
         key={i}
-        href={pkg.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform cursor-pointer hover:bg-white/20"
+        onClick={() =>
+          window.Calendly.initPopupWidget({
+            url: `https://calendly.com/syl-gagliardi/new-meeting?hide_event_type_details=1&primary_color=3b82f6&text_color=ffffff&background_color=0f172a&redirect_url=${encodeURIComponent(pkg.stripe)}`
+          })
+        }
+        className="block bg-white/10 backdrop-blur-2xl rounded-2xl p-6 shadow-xl text-white border border-white/20 hover:scale-105 transition-transform cursor-pointer hover:bg-white/20 w-full"
       >
         <h4 className="text-xl font-bold mb-2">{pkg.title}</h4>
         <p className="text-blue-100 mb-2">{pkg.desc}</p>
         <p className="text-white text-lg font-semibold">{pkg.price}</p>
-        <p className="mt-4 text-green-300 text-sm italic">Pay Deposit</p>
-      </a>
+        <p className="mt-4 text-green-300 text-sm italic">Schedule & Pay</p>
+      </button>
     ))}
   </div>
 
@@ -95,6 +96,7 @@ export default function CascadeLandingPage() {
     Roof cleaning starts at <span className="font-bold text-white">$399</span> based on pitch and difficulty.
   </div>
 </section>
+
 
 {/* Contact Form */}
 <form
